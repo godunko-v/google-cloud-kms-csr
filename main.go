@@ -78,10 +78,7 @@ func main() {
 
 	template.RawSubject = asn1Subj
 
-	// TODO Make this a flag or read from s.PublicKey?
-	//      https://cloud.google.com/kms/docs/algorithms
-	//      https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys#CryptoKeyVersionTemplate
-	template.SignatureAlgorithm = x509.ECDSAWithSHA256 // x509.SHA256WithRSAPSS
+	template.SignatureAlgorithm = x509.SHA256WithRSAPSS
 
 	f, err := os.Create(*outFlag)
 	if err != nil {
